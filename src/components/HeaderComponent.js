@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron } from 'reactstrap';
+import { Typography } from '@material-ui/core';
 
 class Header extends Component {
 
@@ -7,9 +8,7 @@ class Header extends Component {
         return(
             <>
                 <Jumbotron>
-                    <div className="container">
-                            <h1>To Do List</h1>
-                    </div>
+                    <Typography variant="h1" component="h1" gutterBottom style={{fontWeight: "bolder", color: "#fff"}}>To Do List</Typography>
                 </Jumbotron>
             </>
         );

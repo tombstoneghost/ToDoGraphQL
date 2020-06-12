@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { ADD_TODO, TODO } from './Queries';
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup } from 'reactstrap';
 import { useMutation } from '@apollo/react-hooks';
+import { TextField, IconButton } from '@material-ui/core';
+import { AddCircleOutline } from '@material-ui/icons';
 
 function AddTodoComponent({isPublic = false}) {
     const updateCache = (cache, {data}) => {
@@ -28,29 +30,28 @@ function AddTodoComponent({isPublic = false}) {
         <div style={{flexDirection: 'row'}}>
             <Form 
                 style={{
-                marginTop: 25, 
+                marginTop: 25,
+                marginBottom: 50, 
                 textAlign: 'center'}}
                 onSubmit={e => {
                 e.preventDefault();
                 addTodo({ variables: {Task: todoInput}});
                 }}>
                 <FormGroup>
-                    <Label htmlFor="newTask">New Task: </Label>
-                    <Input 
-                        type="text" 
-                        name="newTask" 
+                    <TextField 
                         id="newTask" 
-                        style={{marginLeft: 10}}
-                        value={todoInput}
-                        onChange={e => (setTodoInput(e.target.value))}/>
-                    <Button 
+                        label="Add New Task" 
+                        onChange={e => (setTodoInput(e.target.value))} 
+                        value={todoInput} 
+                        style={{marginLeft: 10, fontSize: 35}}/>
+                    <IconButton 
                         type="submit" 
                         style={{marginLeft: 10}}
                         onClick={() => {
                             window.location.reload(true);
                         }}>
-                            Add Task
-                    </Button>
+                            <AddCircleOutline style={{fontSize: 35, color: "red"}}/>
+                    </IconButton>
                 </FormGroup>
             </Form>
         </div>
