@@ -28,13 +28,10 @@ function TodoList() {
                             </TableHead>
                             <TableBody>
                                 {data.TodoItems.map(item => (
-                                    <TableRow key={item.id} 
-                                        style={{
-                                        display: "flex", 
-                                        flexDirection: "row"}}>
-                                        <TableCell align="right"><Typography variant="h5" component="h5">{item.Task}</Typography></TableCell>
-                                        <TableCell align="right"><Mark id={item.id}/></TableCell>
-                                        <TableCell align="right"><Delete id={item.id}/></TableCell>
+                                    <TableRow key={item.id}>
+                                        <TableCell align="left"><Typography variant="h5" component="h5">{item.Task}</Typography></TableCell>
+                                        <TableCell align="left"><Mark id={item.id}/></TableCell>
+                                        <TableCell align="left"><Delete id={item.id}/></TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
